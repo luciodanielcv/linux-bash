@@ -1,0 +1,26 @@
+
+
+#Check folder space
+du -h
+
+#Check disk space
+df -h
+
+#look for a string in a file
+grep "text" file.txt
+
+#look for a string ignore case-sensitive in a file
+grep -i "text" file.txt
+
+#Create folder and subfolders as necessary
+mkdir -p existingFolder/requiredFolder1/requiredFolder2/folde
+
+#As an example, when you change your password with the passwd command, your new password is stored in the file /etc/shadow.
+
+#There is some special permissions for files-programs
+#Permissions called SUID and SGID - Special UniserId and Special GroupId
+#These permissions are indicated with an s replacing the w in the "rxw" octet
+#These permissions will make the file-program to inherit permissions replacing the current user executing the file-program
+#An example is the /etc/passwd file which is root-only access but for a user that required to update its password a permission is required in this /etc/passwd file.
+
+
