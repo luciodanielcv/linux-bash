@@ -23,4 +23,10 @@ mkdir -p existingFolder/requiredFolder1/requiredFolder2/folde
 #These permissions will make the file-program to inherit permissions replacing the current user executing the file-program
 #An example is the /etc/passwd file which is root-only access but for a user that required to update its password a permission is required in this /etc/passwd file.
 
+#To check ip address
+ip addr
+
+#To check file sizes
+du -h
+
 
