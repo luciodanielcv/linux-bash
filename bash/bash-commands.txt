@@ -51,3 +51,88 @@ sudo qemu-img convert -f vdi -O qcow2 VirtualMachines/ldcv_mint/ldcv_mint.vdi qe
 #Add user to docker group
 sudo usermod -aG docker ldcv
 
+#To enable shrew with QT5 with these commands:
+git clone https://github.com/ben-foxmoore/shrew-qt5.git
+cmake -DCMAKE_INSTALL_PREFIX=/usr -DQTGUI=YES -DETCDIR=/etc -DNATT=YES
+make
+sudo make install
+#The command is qikea
+
+#In linux aws I had the error regarding shared libraries not found. Then I had to
+#execute this to fix the problem:
+sudo ldconfig
+
+
+#Login with command line
+ikec -r Bimbo -u gabriel.custodio@dxc.com -p password -a
+
+-------------------
+
+#Save git credentials
+git config --global credential.helper store
+
+--------------
+
+git branch --set-upstream-to=origin/dev local-dev
+
+--------------
+<repositories>
+	<repository>
+	   <id>jaspersoft-third-party</id>
+	   <url>https://jaspersoft.jfrog.io/jaspersoft/third-party-ce-artifacts/</url>
+	</repository>
+</repositories>
+
+-------------------
+#Activate node in AWS virtual machine
+#First install nvm
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
+#Activate nvm
+. ~/.nvm/nvm.sh
+#Install node
+nvm install node
+
+
+-----------------------
+
+#Install maven 3.8+ in AWS virtual machine
+sudo yum remove maven
+  464  sudo wget https://www-eu.apache.org/dist/maven/maven-3/3.8.1/binaries/apache-maven-3.8.1-bin.tar.gz
+  465  sudo tar xf /tmp/apache-maven-*.tar.gz -C /opt
+  466  sudo tar xf apache-maven-*.tar.gz -C /opt
+  467  ll
+  468  sudo ln -s /opt/apache-maven-3.8.1 /opt/maven
+  469  sudo nano /etc/profile.d/maven.sh
+  470  sudo vim /etc/profile.d/maven.sh
+  471  sudo chmod +x /etc/profile.d/maven.sh
+  472  source /etc/profile.d/maven.sh
+  473  mvn --version
+
+#File /etc/profile.d/maven.sh
+export JAVA_HOME=/usr/java/jdk1.8.0_261-amd64
+export M2_HOME=/opt/maven
+export MAVEN_HOME=/opt/maven
+export PATH=${M2_HOME}/bin:${PATH}
+
+
+-------------------
+
+#Payroll frontend build
+mkdir node
+cd node
+ln -s /home/ec2-user/.nvm/versions/node/v16.3.0/bin/node node
+ln -s /home/ec2-user/.nvm/versions/node/v16.3.0/lib/node_modules node_modules
+
+-------------------------
+mkdir node
+ 2038  cd node
+ 2039  whereis node
+ 2040  ln -s /home/ldcv/Documents/ldcvApps/node-v14.17.0-linux-x64/bin/node node
+ 2041  ln -s /home/ldcv/Documents/ldcvApps/node-v14.17.0-linux-x64/lib/node_modules/ node_modules
+
+-----------------------
+
+
+
+
+
